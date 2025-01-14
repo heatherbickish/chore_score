@@ -28,7 +28,12 @@ VALUES("Walk the kitties", "Don't go to PetCo, we are banned for life.", 1),
 
 SELECT * FROM chores;
 
-SELECT * FROM chores WHERE id = 2;
+SELECT * FROM chores WHERE id = 3;
+
+
+SELECT name, isComplete FROM chores WHERE id = 3;
+UPDATE chores SET isComplete = true WHERE id =3;
+
 
 DELETE FROM chores WHERE id = 1;
 
