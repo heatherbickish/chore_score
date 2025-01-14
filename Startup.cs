@@ -1,3 +1,4 @@
+using chore_score.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,8 +15,8 @@ public class Startup
   public Startup(IConfiguration configuration)
   {
     Configuration = configuration;
-    
-      // converts snake_case to PascalCase
+
+    // converts snake_case to PascalCase
     DefaultTypeMap.MatchNamesWithUnderscores = true;
   }
 
@@ -36,6 +37,8 @@ public class Startup
 
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
+    services.AddScoped<ChoresService>();
+    services.AddScoped<ChoresRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)
