@@ -11,6 +11,8 @@ public class ChoresController : ControllerBase
   }
   private readonly ChoresService _choresService;
 
+
+
   [HttpGet]
   public ActionResult<List<Chore>> GetAllChores()
   {

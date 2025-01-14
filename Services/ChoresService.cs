@@ -12,9 +12,11 @@ public class ChoresService
   }
   private readonly ChoresRepository _choresRepository;
 
+
+
   public List<Chore> GetAllChores()
   {
-    List<Chore> chores = [];
+    List<Chore> chores = _choresRepository.GetAllChores();
     return chores;
   }
 }
