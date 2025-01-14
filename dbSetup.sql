@@ -31,3 +31,5 @@ SELECT * FROM chores;
 SELECT * FROM chores WHERE id = 2;
 
 DELETE FROM chores WHERE id = 1;
+
+DELETE FROM chores;
