@@ -26,4 +26,10 @@ public class ChoresService
     if (chore == null) throw new Exception($"Invalid chore id {choreId}");
     return chore;
   }
+
+  public Chore CreateChore(Chore choreData)
+  {
+    Chore chore = _choresRepository.CreateChore(choreData);
+    return chore;
+  }
 }

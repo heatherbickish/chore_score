@@ -1,5 +1,8 @@
 
 
+
+using System.ComponentModel.Design;
+
 namespace chore_score.Repository;
 
 public class ChoresRepository
@@ -24,6 +27,18 @@ public class ChoresRepository
   {
     string sql = "SELECT * FROM chores WHERE id = @choreId;";
     Chore chore = _db.Query<Chore>(sql, new { choreId = choreId }).SingleOrDefault();
+    return chore;
+  }
+
+  public Chore CreateChore(Chore choreData)
+  {
+    string sql = @"
+    INSERT INTO 
+    chores(name, description, isComplete)
+    VALUES(@Name, @Description, @IsComplete);
+
+    SELECT * FROM chores WHERE id = LAST_INSERT_ID()";
+    Chore chore = _db.Query<Chore>(sql, choreData).SingleOrDefault();
     return chore;
   }
 }

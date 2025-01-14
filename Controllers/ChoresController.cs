@@ -44,4 +44,20 @@ public class ChoresController : ControllerBase
     }
   }
 
+
+  [HttpPost]
+  public ActionResult<List<Chore>> CreateChore([FromBody] Chore choreData)
+  {
+    try
+    {
+      Chore chore = _choresService.CreateChore(choreData);
+      return Ok(chore);
+    }
+    catch (Exception error)
+    {
+
+      return BadRequest(error.Message);
+    }
+  }
+
 }
