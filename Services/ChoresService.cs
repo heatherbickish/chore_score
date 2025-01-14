@@ -32,4 +32,11 @@ public class ChoresService
     Chore chore = _choresRepository.CreateChore(choreData);
     return chore;
   }
+
+  public string DeleteChore(int choreId)
+  {
+    Chore chore = GetChoreById(choreId);
+    _choresRepository.DeleteChore(choreId);
+    return $"{chore.Name} was deleted!";
+  }
 }

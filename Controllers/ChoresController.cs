@@ -60,4 +60,19 @@ public class ChoresController : ControllerBase
     }
   }
 
+
+  [HttpDelete("{choreId}")]
+  public ActionResult<List<Chore>> DeleteChore(int choreId)
+  {
+    try
+    {
+      string message = _choresService.DeleteChore(choreId);
+      return Ok(message);
+    }
+    catch (Exception error)
+    {
+
+      return BadRequest(error.Message);
+    }
+  }
 }

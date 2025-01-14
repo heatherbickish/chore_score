@@ -41,4 +41,13 @@ public class ChoresRepository
     Chore chore = _db.Query<Chore>(sql, choreData).SingleOrDefault();
     return chore;
   }
+
+  public void DeleteChore(int choreId)
+  {
+    string sql = "DELETE FROM chores WHERE id = @choreId LIMIT 1;";
+    int rowsAffected = _db.Execute(sql, new { choreId });
+
+    if (rowsAffected == 0) throw new Exception("No rows were deleted!");
+    if (rowsAffected > 1) throw new Exception($"{rowsAffected} rows were deleted!");
+  }
 }
