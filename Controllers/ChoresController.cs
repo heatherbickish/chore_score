@@ -29,5 +29,19 @@ public class ChoresController : ControllerBase
   }
 
 
+  [HttpGet("{choreId}")]
+  public ActionResult<List<Chore>> GetChoreById(int choreId)
+  {
+    try
+    {
+      Chore chore = _choresService.GetChoreById(choreId);
+      return Ok(chore);
+    }
+    catch (Exception error)
+    {
+
+      return BadRequest(error.Message);
+    }
+  }
 
 }

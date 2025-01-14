@@ -19,4 +19,11 @@ public class ChoresService
     List<Chore> chores = _choresRepository.GetAllChores();
     return chores;
   }
+
+  public Chore GetChoreById(int choreId)
+  {
+    Chore chore = _choresRepository.GetChoreById(choreId);
+    if (chore == null) throw new Exception($"Invalid chore id {choreId}");
+    return chore;
+  }
 }
